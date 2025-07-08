@@ -11,7 +11,7 @@ body {
 header {
     position: relative;
 
-    background-image: url('/photo/coffeeimage.png');
+    background-image: url('photo/coffeeimage.png');
     background-position: center;
     background-size: cover;
     overflow: hidden;

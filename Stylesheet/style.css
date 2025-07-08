@@ -1,0 +1,620 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Playfair Display', serif;
+}
+
+header {
+    position: relative;
+
+    background-image: url('/photo/coffeeimage.png');
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+}
+
+/* Затемнение фона */
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.886), rgba(0, 0, 0, 0));
+    z-index: 1;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    z-index: 3;
+}
+.navbar-centr a,
+.navbar-right a,
+.fullscreen-menu a {
+    padding-inline: 20px;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Псевдоэлемент для подчёркивания */
+.navbar-centr a::after,
+.navbar-right a::after,
+.fullscreen-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: rgb(249, 192, 106); /* Цвет подчёркивания */
+    transition: width 0.3s ease;
+}
+
+/* При наведении — плавное появление линии */
+.navbar-centr a:hover::after,
+.navbar-right a:hover::after,
+.fullscreen-menu a:hover::after {
+    width: 100%;
+}
+
+/* Дополнительно — цвет текста может немного меняться */
+.navbar-centr a:hover,
+.navbar-right a:hover,
+.fullscreen-menu a:hover {
+    color: rgb(255, 255, 255);
+}
+
+
+/* Логотип */
+.header .navbar-left img {
+    width: 130px;
+}
+
+/* Обычное меню */
+.navbar-centr a,
+.navbar-right a {
+    padding-inline: 20px;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+.text button:hover{color: white;}
+.navbar-right .sign {
+    background-color: rgb(249, 192, 106);
+    padding: 10px 20px;
+    color: black;
+    border-radius: 40px;
+}
+
+/* Текст */
+.text {
+    position: relative;
+    z-index: 2;
+    color: white;
+    margin-top: 150px;
+    margin-bottom: 150px;
+    font-size: clamp(14px, 2vw, 20px);
+    padding-left: 10%;
+}
+.text button{    background-color: rgb(249, 192, 106);
+    padding: 10px 25px 10px 25px;
+    margin-top: 2%;
+    cursor: pointer;
+    border-radius: 50px;
+    font-family: 'Playfair Display', serif;
+    font-size: medium;
+    font-weight: bold;
+} 
+.text .text-child p {
+    font-family: "Clicker Script", cursive;
+    font-size: clamp(60px, 12vw, 120px);
+}
+
+.text .p p {
+    padding-top: 0.5%;
+}
+
+/* Бургер */
+.burger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 40px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 9999;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.burger div {
+    height: 4px;
+    background-color: white;
+    border-radius: 2px;
+    transition: all 0.4s ease;
+}
+
+/* Бургер активен (крестик) */
+.burger.active div:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+.burger.active div:nth-child(2) {
+    opacity: 0;
+}
+.burger.active div:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Полноэкранное меню */
+.fullscreen-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.95);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    z-index: 5;
+}
+
+.fullscreen-menu.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.fullscreen-menu a {
+    color: white;
+    font-size: clamp(18px, 4vw, 22px);
+    margin: 20px 0;
+    text-decoration: none;
+}
+
+/* Кнопка закрытия */
+.fullscreen-menu .close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+}
+
+/* Адаптация планшетов */
+@media (max-width: 950px) {
+    .navbar-centr,
+    .navbar-right {
+        display: none;
+    }
+
+    .burger {
+        display: flex;
+    }
+
+    .text {
+        font-size: clamp(16px, 5vw, 22px);
+
+        padding: 0 20px;
+        font-size: clamp(12px, 3vw, 18px);
+    }
+
+    .text .text-child p {
+        font-size: clamp(50px, 15vw, 100px);
+    }
+}
+
+/* Адаптация для телефонов */
+@media (max-width: 600px) {
+    .header .navbar-left img {
+        width: 100px;
+    }
+
+    .text {
+        margin-top: 50%;
+        padding: 0 10px;
+        text-align: center;
+    }
+
+    .burger {
+        top: 15px;
+        right: 15px;
+        width: 30px;
+        height: 20px;
+    }
+
+    .text .text-child p {
+        font-size: clamp(40px, 20vw, 80px);
+    }
+}
+@media (max-width: 500px) {
+    .text {
+        margin-top: clamp(20%, 40vw, 40%);
+    }
+}
+@media (max-width: 400px) {
+    .text {
+        margin-top: clamp(30%, 50vw, 60%);
+    }
+}
+
+  
+
+@media (max-width: 375px) {
+    .text {
+        margin-top: 70%;
+    }
+
+    .text .text-child p {
+        font-size: clamp(25px, 25vw, 50px);
+    }
+}
+@media (max-width: 360px) {
+    .text {
+        margin-top: 20%;
+    }
+
+    .text .text-child p {
+        font-size: clamp(25px, 25vw, 50px);
+    }
+}
+.text-p p{font-size: 20px;
+    font-family: "Playfair Display", serif;
+}
+.text-p h6{font-size: 54px;
+    padding-bottom: 5%;
+    font-family: "Playfair Display", serif;
+}
+.text-p button {
+    background-color: rgb(249, 192, 106);
+    padding: 10px 25px 10px 25px;
+    margin-top: 10%;
+    cursor: pointer;
+    border-radius: 50px;
+    font-family: 'Playfair Display', serif;
+    font-size: medium;
+    font-weight: bold;
+}
+.text-p button:hover{color: white;}
+.text-p p
+
+ {
+    padding-top: 0.5%;
+}
+.text-p{padding-top: 10%;}
+/* Общий стиль для больших экранов */
+/* Базовое состояние остаётся без изменений */
+.flex {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap; /* добавил, чтобы элементы не вылезали за границы на маленьких экранах */
+    padding: 0 2%;
+}
+
+.flex img {
+    padding-top: 15%;
+    max-width: 100%;
+    height: auto;
+}
+
+.text-p {
+    padding-top: 10%;
+}
+
+.text-p h6 {
+    font-size: 54px;
+    padding-bottom: 5%;
+    font-family: "Playfair Display", serif;
+}
+
+.text-p p {
+    font-size: 20px;
+    padding-top: 0.5%;
+    font-family: "Playfair Display", serif;
+}
+
+.text-p button {
+    background-color: rgb(249, 192, 106);
+    padding: 10px 25px;
+    margin-top: 5%;
+    cursor: pointer;
+    border-radius: 50px;
+    font-family: 'Playfair Display', serif;
+    font-size: medium;
+    font-weight: bold;
+    cursor: pointer;
+    color: black;
+    border: none;
+    transition: all 0.3s ease; /* плавная анимация */
+}
+
+/* Hover-эффект */
+.text-p a:hover {
+
+    color: white;
+}
+
+
+/* Секция с нижним изображением */
+.img {
+    position: absolute;
+    height: 10vh;
+}
+
+.img img {
+    position: relative;
+    top: -50px;
+    max-width: 100%;
+    height: auto;
+}
+@media (max-width: 1300px){
+    .img img {
+       display: none;
+    }
+}
+/* ✅ Мягкая адаптация для маленьких экранов */
+@media (max-width: 768px) {
+    .flex {
+        padding: 0 4%;
+        flex-wrap: wrap;
+    }
+
+    .text-p {
+        padding-top: 8%;
+    }
+
+    .text-p h6 {
+        font-size: 36px;
+        padding-bottom: 6%;
+    }
+
+    .text-p p {
+        font-size: 14px;
+        padding-top: 2%;
+    }
+
+    .text-p button {
+        padding: 8px 20px;
+        margin-top: 8%;
+        font-size: small;
+    }
+
+    .flex img {
+        padding-top: 8%;
+       
+        max-height: 200px;
+    }
+
+    .img img {
+        top: -50px;
+        width: 70%;
+        max-height: 120px;
+    }
+}
+
+/* Ещё мягче для совсем маленьких экранов */
+@media (max-width: 480px) {
+    .text-p h6 {
+        font-size: 28px;
+    }
+
+    .text-p p {
+        font-size: 12px;
+    }
+
+    .text-p button {
+        padding: 6px 16px;
+        font-size: 12px;
+    }
+
+    .flex img {
+       
+        max-height: 160px;
+    }
+
+    .img img {
+        top: -50px;
+        width: 80%;
+        max-height: 100px;
+    }
+}
+.card-price h1{padding-top: 12%;
+font-size: 54px;
+text-align: center;
+color: rgba(96, 56, 9, 1)}
+.card-price p{text-align: center;
+font-size: 20px;
+color: rgba(112, 112, 112, 1);}
+.card {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 3% 5%;
+}
+.price1{width: 280px;
+height: 378px;}
+.card h1{font-size: 22px;
+padding-bottom: 2%;}
+.card p{font-size: 16px;
+padding-bottom: 2%;}
+.card .price{font-size: 18px;}
+.card img{width: 280px;
+height: 222px;}
+.price1 button {
+    position: absolute;
+    bottom: -20px; /* кнопка выступает вниз */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgb(249, 192, 106);
+    color: #4d2b1f;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 25px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: "Playfair Display", serif;
+    box-shadow: 0 5px 10px rgba(249, 192, 106, 0.5);
+    transition: all 0.3s ease;
+}
+.price1 {
+    width: 280px;
+    background-color: #fdf7f0;
+    border: 1px solid #f3e9db;
+    border-radius: 10px;
+    text-align: center;
+    font-family: "Playfair Display", serif;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    padding-bottom: 50px; /* место для внутреннего контента */
+    overflow: visible; /* чтобы кнопка могла выходить за границу */
+    margin-bottom: 40px; /* чтобы между карточками было расстояние */
+}
+    .price1 img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px 10px 0 0;
+    }
+    
+   /* Базовый стиль (десктоп) */
+.price1 {
+    width: 280px;
+    min-height: 420px;
+    background-color: #fdf7f0;
+    border: 1px solid #f3e9db;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    padding-bottom: 80px; /* Оставляем место под кнопку */
+    overflow: visible;
+    margin-bottom: 60px; /* Чтоб кнопка не налезала на следующую карточку */
+}
+
+.price1 button {
+    position: absolute;
+    bottom: -15px; /* Кнопка за границей блока */
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 25px;
+    font-weight: bold;
+    background-color: rgb(249, 192, 106);
+    border-radius: 50px;
+    border: none;
+    color: #4d2b1f;
+    font-family: 'Playfair Display', serif;
+    box-shadow: 0 5px 10px rgba(249, 192, 106, 0.5);
+    transition: all 0.3s ease;
+}
+.price1 button:hover{
+    color: white;
+}
+
+/* Планшеты */
+@media (max-width: 1024px) {
+    .price1 {
+      
+       
+        position: static;
+
+    }
+   
+    
+    .price1 button {
+        position: static;
+        transform: translateX(0%);
+   
+    }
+
+
+ 
+}
+
+/* Более узкие планшеты */
+@media (max-width: 768px) {
+    .price1 {
+      
+       
+        position: static;
+
+    }
+   
+    
+    .price1 button {
+        position: static;
+        transform: translateX(0%);
+   
+    }
+}
+
+/* Телефоны */
+@media (max-width: 500px) {
+    .price1 {
+      align-items: center;
+       text-align: center;
+        position: static;
+
+    }
+   
+    
+    .price1 button {
+        position: static;
+     text-align: center;
+   align-items:center;
+   transform: translateX(0%);
+    }
+
+    .price1 button {
+        padding: 8px 20px;
+    }
+}
+
+/* Маленькие телефоны */
+@media (max-width: 400px) {
+    .price1 {
+      
+       
+        position: static;
+
+    }
+   
+    
+    .price1 button {
+        position: static;
+        transform: translateX(0%);
+   
+    }}
+    /* Маленькие телефоны */
+@media (max-width: 300px) {
+    .price1 {
+      
+      height: 1vh;
+        position: static;
+
+    }
+   
+    
+    .price1 button {
+        position: static;
+        transform: translateX(0%);
+   
+    }}

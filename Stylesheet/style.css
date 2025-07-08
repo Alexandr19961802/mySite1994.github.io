@@ -618,3 +618,291 @@ height: 222px;}
         transform: translateX(0%);
    
     }}
+ .image2 {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+    }
+    
+    .image2 img {
+        max-width: 500px;
+        width: 100%;
+        height: auto;
+        position: relative;
+        top: 0;
+    }
+    @media (max-width: 1950px) {
+        .image2 img {
+            position: absolute;
+            top: -120px;
+            right:-16%;
+            transform: translateX(-50%);
+            max-width: 500px;
+            width: 100%;
+            height: auto;
+        }
+    }
+    @media (max-width: 1600px) {
+        .image2 img {
+            position: absolute;
+            top: -120px;
+            right:-18%;
+            transform: translateX(-50%);
+            max-width: 500px;
+            width: 100%;
+            height: auto;
+        }
+    }
+    @media (max-width: 1299px) {
+        .image2 img {
+            display: none;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .image2 img {
+            display: none;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .image2 img {
+            display: none;
+        }
+    }
+    .rtr {text-align: center;
+    padding-top: 5%;
+    font-family: "Playfair Display", serif;
+}
+    .rtr h1{font-size: 54px;
+    color:rgba(96, 56, 9, 1);}
+    .rtr p{font-size: 20px;
+        padding-top: 2%;
+    color: rgba(112, 112, 112, 1);}
+    .flex3 {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        text-align: center;
+        gap: 20px;
+        padding: 20px;
+    }
+    
+    .flex3 div {
+        background-color: rgba(249, 192, 106, 0.42);
+        width: 280px;
+        max-width: 90%;
+        height: auto;
+        margin-top: 2%;
+        padding: 20px;
+        box-sizing: border-box;
+        border-radius: 10px;
+    }
+    
+    .flex3 img {
+        padding-top: 15%;
+        padding-bottom: 13%;
+        max-width: 100%;
+        height: auto;
+    }
+    
+    .flex3 h3 {
+        padding-bottom: 5%;
+    }
+    
+    /* Планшеты */
+    @media (max-width: 900px) {
+        .flex3 {
+            flex-direction: column;
+            align-items: center;
+        }
+    
+        .flex3 div {
+            width: 80%;
+            margin-top: 20px;
+        }
+    
+        .flex3 h3 {
+            font-size: 20px;
+        }
+    }
+    
+    /* Маленькие телефоны */
+    @media (max-width: 500px) {
+        .flex3 div {
+            width: 90%;
+            padding: 15px;
+        }
+    
+        .flex3 h3 {
+            font-size: 18px;
+        }
+    
+        .flex3 p {
+            font-size: 14px;
+        }
+    
+        .flex3 img {
+            padding-top: 10%;
+            padding-bottom: 10%;
+        }
+    }
+    .qwer {text-align: center;}
+    .qwer h3{font-size: 30px;
+        color:rgba(96, 56, 9, 1);}
+        .qwer p{font-size: 20px;
+            padding-top: 2%;
+        color: rgba(96, 56, 9, 1);}
+        .qwer button{    background-color: rgb(249, 192, 106);
+            padding: 10px 25px;
+            margin-top: 1.5%;
+            cursor: pointer;
+            border-radius: 50px;
+            font-family: 'Playfair Display', serif;
+            font-size: medium;
+            font-weight: bold;
+            cursor: pointer;
+            color: black;
+            border: none;
+            transition: all 0.3s ease;}
+            .qwer button:hover{color: white;}
+            .coffee-banner {margin-top: 8%;
+                position: relative;
+                background-image: url('../photo/Rectangle14.png');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                overflow: hidden;
+                flex-wrap: wrap;
+                padding: 20px;
+            }
+
+/* Затемнение */
+.coffee-banner::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(95, 55, 10, 0.719);
+    z-index: 1;
+}
+
+/* Зерна */
+.coffee-beans {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    max-width: 600px;
+    width: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+.banner-content button{  background-color: rgb(249, 192, 106);
+    padding: 10px 25px;
+    margin-top: 1.5%;
+    cursor: pointer;
+    border-radius: 50px;
+    font-family: 'Playfair Display', serif;
+    font-size: medium;
+    font-weight: bold;
+    cursor: pointer;
+    color: black;
+    border: none;
+    transition: all 0.3s ease;}
+    .banner-content button:hover{color: white;}
+/* Текст слева */
+.banner-content {
+    position: relative;
+    z-index: 3;
+    color: white;
+    max-width: 45%;
+    font-family: "Playfair Display", serif;
+    text-align: left;
+    font-size: 34px;
+}
+.banner-content p{font-size: 20px;
+padding-top: 2%;
+padding-bottom: 2%;}
+/* Центровка кнопки и текста внутри контента */
+.banner-content button {
+    display: block;
+    margin-top: 20px;
+}
+
+/* Стакан */
+.banner-image {
+    position: relative;
+    z-index: 4;
+}
+
+.banner-image img {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+}
+
+/* Планшеты */
+@media (max-width: 1024px) {
+    .coffee-banner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .banner-content {
+        max-width: 80%;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .banner-content button {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .coffee-beans {
+        max-width: 400px;
+    }
+
+    .banner-image img {
+        max-width: 300px;
+    }
+}
+
+/* Телефоны */
+@media (max-width: 600px) {
+    .coffee-banner {
+        padding: 10px;
+    }
+
+    .banner-content {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .banner-content button {
+        margin-left: auto;
+        margin-right: auto;
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    .coffee-beans {
+        max-width: 250px;
+    }
+
+    .banner-image img {
+        max-width: 250px;
+    }
+
+    .banner-content h1 {
+        font-size: 24px;
+    }
+
+    .banner-content p {
+        font-size: 14px;
+    }
+}
+            

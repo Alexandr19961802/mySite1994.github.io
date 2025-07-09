@@ -173,7 +173,103 @@
                 <img src="photo/cup.png" alt="Coffee Cup">
             </div>
         </section>
+         <section class="feedback">
+            <div class="feedback-header">
+              <h1>Our coffee perfection feedback</h1>
+              <p>Our customers has amazing things to say about us</p>
+            </div>
+          
+            <div class="feedback-content">
+              <img src="photo/coffee_blast (3).png" class="choco-left" alt="">
+              <img src="photo/coffee_blast.png" class="choco-right" alt="">
+              <div class="feedback-box">
+                <div class="feedback-slider">
+                  <div class="feedback-slide active">
+                    <p class="quote-mark">&#10077;</p>
+                    <p class="feedback-text">
+                      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset.....
+                    </p>
+                    <div class="author">
+                      <h2>Jonny Thomas</h2>
+                      <p>Project Manager</p>
+                    </div>
+                    <img src="photo/Rectangle 9 (1).png" alt="" class="author-avatar">
+                  </div>
+              
+                  <div class="feedback-slide">
+                    <p class="quote-mark">&#10077;</p>
+                    <p class="feedback-text">
+                      Coffee has changed my mornings. I never knew a simple cup could bring so much energy and joy. Thanks to your amazing coffee blends, every day starts perfectly.
+                    </p>
+                    <div class="author">
+                      <h2>Emily Watson</h2>
+                      <p>Creative Director</p>
+                    </div>
+                    <img src="photo/Rectangle7.png" alt="" class="author-avatar">
+                  </div>
+                </div>
+              
+                <button class="arrow left">&#8592;</button>
+                <button class="arrow right">&#8594;</button>
+              </div>
+              
+          </section>
+         
+<!-- Чашки должны быть выше в коде! -->
+<div class="coffee-cups">
+    <img src="photo/pngwing 1.png" class="cup-left" alt="">
+    <img src="photo/pngwing 2.png" class="cup-right" alt="">
+</div>
+
+<section class="subscribe-section">
+    <h1>Subscribe to get the Latest News</h1>
+    <p>Don’t miss out on our latest news, updates, tips and special offers</p>
+    <div class="subscribe-form">
+        <input type="email" placeholder="Enter your mail">
+        <button>Subscribe</button>
+    </div>
+</section>
+
+
+
+        <footer class="footer">
+           
         
+            <div class="footer-column">
+                <div class="footer-logo">Bean Scene</div>
+                <p>Lorem Ipsum is simply dummy text of the printing and <br> typesetting industry. Lorem Ipsum has been the industry’s <br>standard dummy text ever since the 1500s, when an <br>unknown printer took a galley of type and scrambled it to <br>make a type specimen book.</p>
+                <div class="socials">
+                    <a href="#"><img src="photo/Group 50.png" alt=""></a>
+                    <a href="#"><img src="photo/Group 51.png" alt=""></a>
+                    <a href="#"><img src="photo/Group 52.png" alt=""></a>
+                    <a href="#"><img src="photo/Group 53.png" alt=""></a>
+                </div>
+            </div>
+        
+            <div class="footer-column">
+                <h3>About</h3>
+                <a href="#">Menu</a>
+                <a href="#">Features</a>
+                <a href="#">News & Blogs</a>
+                <a href="#">Help & Supports</a>
+            </div>
+        
+            <div class="footer-column">
+                <h3>Company</h3>
+                <a href="#">How we work</a>
+                <a href="#">Terms of service</a>
+                <a href="#">Pricing</a>
+                <a href="#">FAQ</a>
+            </div>
+        
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <p>Akshya Nagar 1st Block 1st Cross,<br> Ramamurthy nagar, Bangalore-560016</p>
+                <p>+1 202-918-2132</p>
+                <p>beanscene@mail.com</p>
+                <p>www.beanscene.com</p>
+            </div>
+        </footer>
         
         
     
@@ -189,6 +285,24 @@ document.querySelectorAll('#fullscreenMenu a').forEach(link => {
         document.querySelector('.burger').classList.remove('active');
     });
 });
+const slides = document.querySelectorAll('.feedback-slide');
+  let currentSlide = 0;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+    });
+  }
+
+  document.querySelector('.arrow.right').addEventListener('click', () => {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  });
+
+  document.querySelector('.arrow.left').addEventListener('click', () => {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+  });
 
 
     </script>
